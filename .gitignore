@@ -1,0 +1,7 @@
+# Carpetas generadas automáticamente
+bin/
+obj/
+
+# Archivos de dependencias y configuración de Code::Blocks
+*.depend
+*.layout
