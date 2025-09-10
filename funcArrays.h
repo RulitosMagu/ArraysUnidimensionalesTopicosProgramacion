@@ -22,7 +22,7 @@ int contPal (char *cad, char *dest);
 //1.9
 void normalizarCad(char *cad);
 //1.10
-void desofuscar(char *cad);
+char* desofuscar(char *cad);
 //1.11
 void cargaCadenas(char *cad1, char *cad2, char matriz[][2][MAXLENGHT]);
 

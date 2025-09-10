@@ -141,10 +141,15 @@ void insPosicion(int *vec, int *ce, int val, int pos, int max){
     if(pos<0 || pos>max){
         exit(1);
     }
-    for(int i = (*ce);i>pos; i--){
-        vec[i] = vec[i-1];
+
+    int *posvec = vec+pos;
+    int *fin = vec+(*ce);
+
+    while(fin>posvec){
+        *fin = *(fin-1);
+        fin--;
     }
-    vec[pos] = val;
+    *posvec = val;
     *ce = (*ce)==max? *ce: *ce+1;
 }
 
@@ -180,7 +185,7 @@ void elimPosicion(int *vec, int *ce, int pos){
     }else{
 
         for(i= pos; i<*ce;i++){
-            vec[i]= vec[i+1];
+            *(vec+i)= *(vec+i+1);
         }
         *ce = *ce-1;
     }
@@ -195,7 +200,7 @@ void elimPrimerAp(int *vec, int *ce, int elem){
     int pos =-1;
 
     for(i=0; i<*ce; i++){
-        if(vec[i] == elem){
+        if(*(vec+i) == elem){
             pos= i;
             break;
 
@@ -275,24 +280,36 @@ int valCadena (char *cad){
 //ej 1.8
 
 int contPal (char *cad, char *dest){
+    int lencad = contarCad(cad);
+    int lendest = contarCad(dest);
+
 
     //casos de borde
-    if(contarCad(dest)> contarCad(cad))
+    if(lendest> lencad)
         return 0;
-    if(contarCad(dest)==0 || contarCad(cad) ==0)
+    if(lendest==0 || lencad ==0)
         return 0;
 
     int contador=0;
+    char *ini = cad;
 
-    for(int i=0; i<= contarCad(cad)-contarCad(dest);i++){
-        int j=0;
-        while(j<contarCad(dest) && cad[i+j]==dest[j])
-            j++;
 
-        if(j==contarCad(dest))
+    for(; ini <= cad+(lencad-lendest); ini++){
+        char *p1 = ini;
+        char *p2 = dest;
+
+        while(*p2 && (*p1==*p2)){
+            p1++;
+            p2++;
+        }
+
+        if(!*p2)
             contador++;
-
     }
+
+
+
+
 
     return contador;
 
@@ -335,38 +352,34 @@ void normalizarCad(char *cad){
 }
 
 //ej 1.10
-void desofuscar(char *cad){
-    int contador=1;
-    int i;
+
+char *desofuscar(char *cad){
+    int contador =1;
+    char *ini =cad;
     char g[15] = "abcdghijkoqtuv";
+
     while(*cad){
         if(!ESLETRA(*cad)){
             cad++;
             contador=1;
+        }else{
+        char *le = charstr(g,*cad);
+        if(le){
+            char *nuevo = le + (contador%14);
+            if(nuevo>=g+14) nuevo-=14;
+            *cad= *nuevo;
         }
-        else{
-            int bandera=0;
-            for(i=0;i<contarCad(g); i++){
-                char x = AMINUS(*cad);
 
-                if((int)x == (int)g[i]){
-                    bandera=1;
-                    break;
-                }
-            }
-            if(bandera){
-                if((int)*cad >= 65 && (int)*cad <=90){
-                    *cad = AMAYUS(g[(i+contador)%14]);
-                }else
-                    *cad = g[(i+contador)%14];
-            }
+        cad++;
+        contador++;
 
 
-
-            cad++;
-            contador++;
         }
+
+
+
     }
+    return ini;
 }
 
 //ej 1.11
@@ -404,6 +417,7 @@ void cargaCadenas(char *cad1, char *cad2, char matriz[][2][MAXLENGHT]){
 
 
 }
+
 
 
 
