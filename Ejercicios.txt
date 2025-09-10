@@ -1,0 +1,67 @@
+Lista ejercicios:
+
+Ejercicio 1.1
+Desarrollar una función que inserte un elemento en un arreglo de enteros, dada la posición de
+inserción.
+
+Ejercicio 1.2
+Desarrollar una función que inserte un elemento en un arreglo de enteros, ordenado en forma
+ascendente, de forma de no alterar el orden.
+
+Ejercicio 1.3
+Desarrollar una función que elimine el elemento que ocupa una determinada posición de un arreglo
+de enteros.
+
+Ejercicio 1.4
+Desarrollar una función que elimine la primera aparición de un elemento determinado de un arreglo
+de enteros.
+
+Ejercicio 1.5
+Desarrollar una función que elimine todas las apariciones de un determinado elemento de un arreglo
+de enteros.
+
+Ejercicio 1.6
+Desarrollar una función que determine si una cadena de caracteres es un palíndromo.
+
+Ejercicio 1.7
+Desarrollar una función que devuelva el valor numérico de una cadena de caracteres (asumiendo que
+los caracteres representan dígitos).
+
+Ejercicio 1.8
+Desarrollar una función que cuente el número de apariciones de una palabra dentro de una cadena
+de texto. Para ello la función recibe como parámetros dos punteros a char. El primero corresponde al
+texto, el segundo corresponde a la cadena buscada. La función debe retornar el número de
+ocurrencias. Contemple las condiciones de borde y haga un listado de éstas.
+
+Ejercicio 1.9
+Desarrollar una función que normalice la cadena de texto que se le pasa como argumento. En este
+caso, la cadena se encontrará normalizada cuando la primera letra de cada palabra sea mayúscula y
+las siguientes minúsculas. La cadena normalizada no deberá contener espacios o tabulaciones al
+inicio o al final. En el caso de que las palabras de la cadena se encuentren separadas por más de un
+espacio o tabulación, se deberán eliminar los excedentes. Se debe modificar la cadena pasada como
+argumento. No puede realizar una o más copias locales de la cadena original. Contemple las
+condiciones de borde y haga un listado de éstas.
+
+Ejercicio 1.10
+La siguiente línea “Nj qemh v ljs kraenkqbres; lj oqe qemh es oqevorme sgn ellhs --Istqt Asdmgj” ha
+sido ofuscada para impedir su lectura desplazando desplazado hacia atrás dentro del grupo
+"abcdghijkoqtuv" tantos caracteres como posición tiene en la palabra.
+Ejemplo, si la palabra es “hola”
+● "h":un lugar atrás porque es la primera letra de la palabra, queda "g"
+● "o":dos lugares atrás, queda "j"
+● "l":No figura en grupo, no se modifica, queda "l"
+● "a":cuatro lugares hacia atrás, queda "q", antes de la “a” está la “v”.
+Quedando una vez ofuscada como “gjlq”.
+● No considere ningún carácter que no figura dentro del grupo
+● Una palabra es todo conjunto de uno o mas caracteres que responden a la función isalpha
+● La frase desofuscada esta en Español.
+
+Ejercicio 1.11
+Ingresar por teclado pares de cadenas de caracteres, finalizando el ingreso cuando ambas cadenas
+sean iguales (las que no deben procesarse). Para cada par, cargar en un array bidimensional, ambas
+cadenas, respetando cargar primero la más pequeña y luego la mayor, si las longitudes fueran
+iguales, el orden lo dará la comparación lexicográfica haciendo caso omiso de mayúsculas y
+minúsculas.
+Escriba una función que determine la comparación solicitada invocando a versiones propias de las
+funciones de biblioteca estándar strlen y strcmpi o strcasecmp (dado que esta no es una función
+estándar en algunos compiladores tiene otro nombre)
